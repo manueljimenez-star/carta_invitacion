@@ -1,53 +1,42 @@
-const sobre = document.getElementById('sobre');
-const tapa = document.getElementById('tapa');
-const carta = document.getElementById('carta');
-const instruccion = document.getElementById('instruccion');
+const tempImg = new Image();
+tempImg.src = "img/HEMOS SIDO ESCOGIDOS 2.png";
 
-let paso = 0; // Contador de toques
+// Asegúrate de que este código esté en tu archivo script.js en GitHub
+document.addEventListener('DOMContentLoaded', () => {
+      const sobre = document.getElementById('sobre');
+      const tapa = document.getElementById('tapa');
+      const carta = document.getElementById('carta');
+      const instruccion = document.getElementById('instruccion');
+      const link = document.getElementById('link-instagram');
 
-sobre.addEventListener('click', () => {
-      paso++;
+      let paso = 0;
 
-      switch (paso) {
-            case 1:
-                  // PASO 1: Abrir la tapa y ocultar el texto de ayuda
+      sobre.onclick = function () {
+            if (paso === 3) return;
+            paso++;
+
+            if (paso === 1) {
                   tapa.classList.add('rotate-x-170');
-                  instruccion.classList.add('opacity-0');
-
-                  // Mandar la tapa atrás después de que empiece a girar
+                  instruccion.style.opacity = "0";
                   setTimeout(() => {
                         tapa.style.zIndex = "5";
-                  }, 300);
-
-                  instruccion.innerText = "Toca para ver la carta";
-                  setTimeout(() => instruccion.classList.remove('opacity-0'), 500);
-                  break;
-
-            case 2:
-                  // PASO 2: Asomar la carta (se queda dentro del bolsillo z-30)
+                        instruccion.innerText = "Toca la invitación";
+                        instruccion.style.opacity = "1";
+                  }, 400);
+            }
+            else if (paso === 2) {
                   carta.classList.remove('opacity-0');
-
-                  // Añadimos el recorte (clip-path): 
-                  // Cortamos el 40% inferior de la imagen para que no sobresalga por abajo del sobre
-                  carta.style.clipPath = "inset(0% 0% 40% 0%)";
-
-                  carta.classList.add('-translate-y-[50%]', 'scale-[0.96]');
-
+                  carta.style.clipPath = "inset(0% 0% 30% 0%)";
+                  carta.classList.add('-translate-y-[70%]', 'scale-[0.96]');
                   instruccion.innerText = "Toca para sacarla";
-                  break;
-
-            case 3:
-                  // PASO 3: Sacar la carta totalmente al frente
+            }
+            else if (paso === 3) {
                   carta.style.zIndex = "100";
-
-                  // QUITAMOS EL RECORTE para que la carta se vea completa al salir
                   carta.style.clipPath = "inset(0% 0% 0% 0%)";
-
                   carta.classList.remove('-translate-y-[70%]', 'scale-[0.96]', 'brightness-[0.8]');
-                  carta.classList.add('-translate-y-[55%]', 'scale-[1.2]', 'brightness-100', 'drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]');
-
-                  carta.style.pointerEvents = "auto";
-                  instruccion.classList.add('opacity-0');
-                  break;
-      }
+                  carta.classList.add('-translate-y-[60%]', 'scale-[1.2]', 'brightness-100');
+                  link.classList.remove('pointer-events-none');
+                  instruccion.innerText = "¡Haz clic en la carta!";
+            }
+      };
 });

@@ -31,6 +31,7 @@
                   overflow: hidden;
             }
       </style>
+      <link rel="preload" as="image" href="img/HEMOS SIDO ESCOGIDOS 2.png">
 </head>
 
 <body
@@ -46,7 +47,8 @@
                   </div>
 
                   <a href="https://www.instagram.com/p/DUA-4gbiBW1/" id="link-instagram" class="block pointer-events-none">
-                        <img id="carta" src="img/HEMOS SIDO ESCOGIDOS 2.png"
+                        <img id="carta" fetchpriority="high" 
+                        loading="eager" src="img/HEMOS SIDO ESCOGIDOS 2.png"
                               class="absolute left-1/2 top-1/2 w-[90%] -translate-x-1/2 -translate-y-[50%] scale-[0.92] 
                             opacity-0 z-20 brightness-[0.8] transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]" alt="Invitación">
                   </a>
