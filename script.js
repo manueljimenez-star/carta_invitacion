@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   carta.style.zIndex = "100";
                   carta.style.clipPath = "inset(0% 0% 0% 0%)";
                   carta.classList.remove('brightness-[0.8]');
-                  carta.classList.add('-translate-y-[45%]', 'scale-[1.2]', 'brightness-100', 'shadow-2xl');
+                  carta.classList.add('-translate-y-[50%]', 'scale-[1.2]', 'brightness-100', 'shadow-2xl');
 
                   link.classList.remove('pointer-events-none');
                   instruccion.innerText = "¡Haz clic en la carta!";
