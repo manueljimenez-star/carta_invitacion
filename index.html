@@ -4,8 +4,7 @@
 <head>
       <meta property="og:title" content="Invitación Generación Vida">
       <meta property="og:description" content="¡Tú también has sido escogido!">
-      <meta property="og:image"
-            content="https://manueljimenez-star.github.io/carta_invitacion/img/HEMOS_SIDO_ESCOGIDOS_2.png">
+      <meta property="og:image" content="https://manueljimenez-star.github.io/carta_invitacion/img/LEMA.png">
       <meta property="og:url" content="https://manueljimenez-star.github.io/carta_invitacion/">
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -20,7 +19,6 @@
                   transform: rotateX(170deg);
             }
 
-            /* TEXTURA ELARX: Ruido sutil para realismo de papel */
             .elarx-texture::after {
                   content: "";
                   position: absolute;
@@ -36,7 +34,7 @@
                   overflow: hidden;
             }
       </style>
-      <link rel="preload" as="image" href="img/HEMOS SIDO ESCOGIDOS 2.png">
+      <link rel="preload" as="image" href="img/CARTA.jpg">
 </head>
 
 <body
@@ -51,9 +49,9 @@
                         class="absolute inset-0 bg-[#252440] rounded-b-xl shadow-2xl z-10 elarx-texture overflow-hidden border border-white/5">
                   </div>
 
-                  <a href="https://www.instagram.com/p/DUA-4gbiBW1/" id="link-instagram" class="block pointer-events-none">
-                        <img id="carta" fetchpriority="high" 
-                        loading="eager" src="img/HEMOS SIDO ESCOGIDOS 2.png"
+                  <a href="https://www.instagram.com/p/DUA-4gbiBW1/" id="link-instagram"
+                        class="block pointer-events-none">
+                        <img id="carta" fetchpriority="high" loading="eager" src="img/CARTA.jpg"
                               class="absolute left-1/2 top-1/2 w-[90%] -translate-x-1/2 -translate-y-[50%] scale-[0.92] 
                             opacity-0 z-20 brightness-[0.8] transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]" alt="Invitación">
                   </a>
@@ -77,6 +75,9 @@
                   class="mt-12 text-center text-white/40 font-light tracking-[4px] uppercase text-[10px] animate-bounce w-full">
                   Toca para abrir
             </p>
+            <div class="mt-8 flex justify-center w-full opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                  <img src="img/LEMA.png" alt="Logo Generación Vida" class="h-12 w-auto object-contain">
+                  </div>
       </div>
 
       <script src="script.js"></script>
