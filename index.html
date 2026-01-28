@@ -11,11 +11,41 @@
       <title>CARTA DE INVITACION</title>
       <script src="https://cdn.tailwindcss.com"></script>
       <style>
+            /* 1. CONTENEDOR DE LA TAPA (Lógica 3D) */
+            #tapa {
+                  transform-style: preserve-3d;
+                  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+                  z-index: 40;
+            }
+
+            /* 2. EL SELLO VINO TINTO (Premium) */
+            .sello-lacre {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -10%);
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  /* Color vino profundo */
+                  background: radial-gradient(circle at 30% 30%, #9e2a2b, #4a0d0d);
+                  color: #e8c39e;
+                  font-size: 11px;
+                  font-weight: 900;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+                  border: 1px solid #631313;
+            }
+
+
+            /* CLASES AUXILIARES */
             .perspective-2000 {
                   perspective: 2000px;
             }
 
-            .rotate-x-170 {
+            .abierta {
                   transform: rotateX(170deg);
             }
 
@@ -27,6 +57,10 @@
                   background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
                   pointer-events: none;
                   mix-blend-mode: multiply;
+            }
+
+            .contenedor-bolsillo {
+                  filter: drop-shadow(0px -4px 7px rgba(0, 0, 0, 0.5));
             }
 
             body {
@@ -46,38 +80,41 @@
                   class="relative w-full h-full transition-transform duration-500 active:scale-95 cursor-pointer">
 
                   <div
-                        class="absolute inset-0 bg-[#252440] rounded-b-xl shadow-2xl z-10 elarx-texture overflow-hidden border border-white/5">
+                        class="absolute inset-0 bg-gradient-to-br from-[#ffffff] to-[#e3edff] rounded-b-xl z-10 elarx-texture overflow-hidden border border-white/5">
                   </div>
 
-                  <a href="https://www.instagram.com/p/DUA-4gbiBW1/" id="link-instagram"
-                        class="block pointer-events-none">
+                  <a href="https://www.instagram.com/p/DUA-4gbiBW1/" id="link-instagram" class="block pointer-events-none">
                         <img id="carta" fetchpriority="high" loading="eager" src="img/CARTA.jpg"
                               class="absolute left-1/2 top-1/2 w-[90%] -translate-x-1/2 -translate-y-[50%] scale-[0.92] 
-                            opacity-0 z-20 brightness-[0.8] transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]" alt="Invitación">
+                              opacity-0 z-20 brightness-[0.8] transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)] elarx-texture" alt="Invitación">
                   </a>
 
-                  <div
-                        class="absolute inset-0 bg-gradient-to-br from-[#161529] via-[#252440] to-[#36355a] 
-                        [clip-path:polygon(0%_0%,15%_0%,50%_50%,85%_0%,100%_0%,100%_100%,0%_100%)] 
-                        z-30 rounded-b-xl border-t border-white/10 shadow-[inset_0_15px_15px_rgba(0,0,0,0.4)] elarx-texture overflow-hidden">
+                  <div class="contenedor-bolsillo absolute inset-0 z-30">
+                        <div class="w-full h-full bg-gradient-to-br from-[#161529] via-[#252440] to-[#36355a] 
+                              [clip-path:polygon(0%_0%,15%_0%,50%_50%,85%_0%,100%_0%,100%_100%,0%_100%)] 
+                              rounded-b-xl elarx-texture">
+                        </div>
                   </div>
 
-                  <div id="tapa"
-                        class="absolute inset-0 bg-gradient-to-br from-white to-[#e3edff] 
-                        [clip-path:polygon(0_0,50%_62%,100%_0)] z-40 origin-top 
-                        transition-all duration-700 ease-in-out elarx-texture
-                        after:content-[''] after:absolute after:top-[42%] after:left-1/2 after:-translate-x-1/2 
-                        after:w-8 after:h-8 after:bg-[#d4af37]/60 after:rounded-full after:shadow-lg after:border after:border-[#b8952e]">
+                  <div id="tapa" class="absolute inset-0 z-40 origin-top transition-all duration-700 ease-in-out">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white to-[#e3edff] elarx-texture
+                              [clip-path:polygon(0_0,50%_62%,100%_0)] backface-hidden">
+                        </div>
+                        <div class="sello-lacre">GV</div>
+
                   </div>
+
             </div>
 
             <p id="instruccion"
                   class="mt-12 text-center text-white/40 font-light tracking-[4px] uppercase text-[10px] animate-bounce w-full">
                   Toca para abrir
             </p>
-            <div class="mt-8 flex justify-center w-full opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+
+            <div
+                  class="mt-8 flex justify-center w-full opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                   <img src="img/LEMA.png" alt="Logo Generación Vida" class="h-12 w-auto object-contain">
-                  </div>
+            </div>
       </div>
 
       <script src="script.js"></script>
