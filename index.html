@@ -3,22 +3,73 @@
 
 <head>
       <meta charset="UTF-8">
-      <title>Invitación Especial</title>
-      <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <title>CARTA DE INVITACION</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <style>
+            .perspective-2000 {
+                  perspective: 2000px;
+            }
+
+            .rotate-x-170 {
+                  transform: rotateX(170deg);
+            }
+
+            /* TEXTURA ELARX: Ruido sutil para realismo de papel */
+            .elarx-texture::after {
+                  content: "";
+                  position: absolute;
+                  inset: 0;
+                  opacity: 0.08;
+                  background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+                  pointer-events: none;
+                  mix-blend-mode: multiply;
+            }
+
+            body {
+                  touch-action: pan-y;
+                  overflow: hidden;
+            }
+      </style>
 </head>
 
-<body>
+<body
+      class="bg-[radial-gradient(circle_at_center,_#1e1e2f_0%,_#0a0a0f_100%)] h-screen flex flex-col items-center justify-center p-4">
 
-      <div class="container">
-            <div class="carta" id="carta">
-                  <div class="frente">
-                        <h2>Toca para abrir</h2>
+      <div class="relative w-full max-w-[350px] aspect-[3/2] perspective-2000">
+
+            <div id="sobre"
+                  class="relative w-full h-full transition-transform duration-500 active:scale-95 cursor-pointer">
+
+                  <div
+                        class="absolute inset-0 bg-[#252440] rounded-b-xl shadow-2xl z-10 elarx-texture overflow-hidden border border-white/5">
                   </div>
-                  <div class="dentro">
-                        <h1>Estás Invitado</h1>
-                        <p>No te lo puedes perder ✨</p>
+
+                  <a href="https://www.instagram.com/p/DUA-4gbiBW1/" id="link-instagram" class="block pointer-events-none">
+                        <img id="carta" src="img/HEMOS SIDO ESCOGIDOS 2.png"
+                              class="absolute left-1/2 top-1/2 w-[90%] -translate-x-1/2 -translate-y-[50%] scale-[0.92] 
+                            opacity-0 z-20 brightness-[0.8] transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]" alt="Invitación">
+                  </a>
+
+                  <div
+                        class="absolute inset-0 bg-gradient-to-br from-[#161529] via-[#252440] to-[#36355a] 
+                        [clip-path:polygon(0%_0%,15%_0%,50%_50%,85%_0%,100%_0%,100%_100%,0%_100%)] 
+                        z-30 rounded-b-xl border-t border-white/10 shadow-[inset_0_15px_15px_rgba(0,0,0,0.4)] elarx-texture overflow-hidden">
+                  </div>
+
+                  <div id="tapa"
+                        class="absolute inset-0 bg-gradient-to-br from-white to-[#e3edff] 
+                        [clip-path:polygon(0_0,50%_62%,100%_0)] z-40 origin-top 
+                        transition-all duration-700 ease-in-out elarx-texture
+                        after:content-[''] after:absolute after:top-[42%] after:left-1/2 after:-translate-x-1/2 
+                        after:w-8 after:h-8 after:bg-[#d4af37]/60 after:rounded-full after:shadow-lg after:border after:border-[#b8952e]">
                   </div>
             </div>
+
+            <p id="instruccion"
+                  class="mt-12 text-center text-white/40 font-light tracking-[4px] uppercase text-[10px] animate-bounce w-full">
+                  Toca para abrir
+            </p>
       </div>
 
       <script src="script.js"></script>
